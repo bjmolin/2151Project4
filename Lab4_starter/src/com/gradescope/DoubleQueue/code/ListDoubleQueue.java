@@ -5,9 +5,9 @@ import java.util.ArrayList;
 /**ListDoubleQueueContract
  *
  *
- * @invariant:
+ * @invariant: maxListSize > 0
  *
- * @corresponds:
+ * @corresponds: max_queue_size = maxListSize
  *
  */
 public class ListDoubleQueue implements IDoubleQueue
@@ -16,13 +16,15 @@ public class ListDoubleQueue implements IDoubleQueue
     private int maxListSize;
 
     /**ListDoubleQueueConstructorContact
+     * initializes an empty queue and assigns maxListSize
      *
+     * @param maxSize represents the bounds of queue
      *
-     * @param maxSize
-     *
-     * @pre
+     * @pre maxSize > 0
      *
      * @post
+     * LQueue is empty
+     * maxListSize = maxSize
      *
      */
     public ListDoubleQueue(int maxSize)
@@ -32,13 +34,15 @@ public class ListDoubleQueue implements IDoubleQueue
     }
 
     /**enqueueContact
+     * assigns new element at the end of queue with a value and a NULL next node
      *
+     * @param val represents the value of the next element
      *
-     * @param val
-     *
-     * @pre
+     * @pre 0 <= |LQueue| < maxListSize 
      *
      * @post
+     * |LQueue| = |LQueue| + 1
+     * [LQuueue has gained another element at the end of queue]
      *
      */
     @Override
