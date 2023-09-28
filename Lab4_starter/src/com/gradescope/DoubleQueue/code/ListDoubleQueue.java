@@ -34,7 +34,7 @@ public class ListDoubleQueue implements IDoubleQueue
     }
 
     /**enqueueContact
-     * assigns new element at the end of queue with a value and a NULL next node
+     * assigns new element at the end of queue with a value
      *
      * @param val represents the value of the next element
      *
