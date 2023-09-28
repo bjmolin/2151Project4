@@ -25,7 +25,13 @@ public class ArrayDoubleQueue implements IDoubleQueue
      */
     public ArrayDoubleQueue(int maxSize)
     {
-
+        if (maxSize < 0){
+            System.out.println("Error");
+        }
+        else{
+            queueMaxSize = maxSize;
+           Double queue[] = new Double[queueMaxSize];
+             }
 
     }
 
@@ -42,6 +48,9 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public void enqueue(Double val)
     {
+        if(queue.length() < queueMaxSize){
+
+        }
 
     }
 
@@ -56,7 +65,13 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public int length()
     {
-
+        int count = 0;
+        for(int i; i < queue.length; i++){ 
+            if (queue[i] != null){
+                count++;
+            }
+        }
+        return count;
     }
 
     public String toString()
