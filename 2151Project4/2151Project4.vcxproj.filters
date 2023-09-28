@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2151Project4.cpp">
+    <ClCompile Include="2151Project4.java">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
