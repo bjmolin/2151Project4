@@ -48,10 +48,7 @@ public class ListDoubleQueue implements IDoubleQueue
     @Override
     public void enqueue(Double val)
     {
-        if(LQueue.size() == this.maxListSize)
-            LQueue.set(this.maxListSize-1, val);
-        else
-            LQueue.add(val);
+        LQueue.add(val);
     }
 
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.

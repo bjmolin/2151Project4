@@ -25,10 +25,8 @@ public class ArrayDoubleQueue implements IDoubleQueue
      */
     public ArrayDoubleQueue(int maxSize)
     {
-
-            queueMaxSize = maxSize;
-           queue = new Double[queueMaxSize];
-
+        queueMaxSize = maxSize;
+        queue = new Double[queueMaxSize];
     }
 
     /**enqueueContact
@@ -45,7 +43,6 @@ public class ArrayDoubleQueue implements IDoubleQueue
     public void enqueue(Double val)
     {
 
-
     }
 
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
@@ -60,7 +57,7 @@ public class ArrayDoubleQueue implements IDoubleQueue
     public int length()
     {
         int count = 0;
-        for(int i; i < queue.length; i++){ 
+        for(int i = 0; i < queue.length; i++){ 
             if (queue[i] != null){
                 count++;
             }
