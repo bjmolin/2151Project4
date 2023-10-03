@@ -42,7 +42,7 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public void enqueue(Double val)
     {
-
+        
     }
 
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
