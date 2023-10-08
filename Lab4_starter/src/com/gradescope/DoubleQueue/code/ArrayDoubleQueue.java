@@ -42,7 +42,12 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public void enqueue(Double val)
     {
-        
+        for (int i = 0; i < queueMaxSize; i++) {
+            if (queue[i] == null) {
+                queue[i] = val;
+                break;
+            } 
+        }
     }
 
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
@@ -50,7 +55,11 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public Double dequeue()
     {
-
+        Double val = queue[0];
+        for (int i = 0; i < (queueMaxSize - 1); i++) {
+            queue[i] = queue[i+1];
+        }
+        return val;
     }
 
     @Override
@@ -67,7 +76,11 @@ public class ArrayDoubleQueue implements IDoubleQueue
 
     public String toString()
     {
-
+        String ret = "";
+        for (int i = 0; i < queueMaxSize; i++) {
+            if (queue[i] != null) ret += ("[" + queue[i] + "] ");
+        }
+        return ret;
     }
 
     //-----------------Ignore the functions below this line-----------------------
