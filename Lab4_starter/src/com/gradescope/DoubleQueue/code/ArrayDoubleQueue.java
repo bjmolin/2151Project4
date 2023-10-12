@@ -102,11 +102,6 @@ public class ArrayDoubleQueue<T> implements IDoubleQueue<T>
         return ret;
     }
 
-    public T peek() {
-
-        return queue[0];
-    }
-
     //-----------------Ignore the functions below this line-----------------------
     public int getQueueMaxSize()
     {
