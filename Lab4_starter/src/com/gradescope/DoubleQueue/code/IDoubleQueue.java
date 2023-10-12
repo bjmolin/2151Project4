@@ -53,6 +53,24 @@ public interface IDoubleQueue <T>
      */
     public int length();
 
+
+    /** peek Contract
+     *  returns ffront of queue
+     *
+     *@return an T representing front of queue
+     *
+     *@pre 
+     * |self| > 0;
+     *
+     *@post
+     * self = #self
+     * return [first element in queue]
+     * |self| = #|self|
+     *
+     */
+    public T peek();
+
+
     /**toStringContract
      * converts self to string
      *
