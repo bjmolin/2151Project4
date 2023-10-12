@@ -78,25 +78,9 @@ public class ArrayDoubleQueue<T> implements IDoubleQueue<T>
     {
 
         String ret = "";
-        int startIndex = 0;
-        boolean findStart = true;
-
-        while (findStart) {
-
-            if (queue[startIndex] == null) {
-                ++startIndex;
-            }
-            else {
-                findStart = false;
-            }
-
-        }
-
-        for (int i = startIndex; i < length(); i++) {
-
-            if (queue[i] != null) {
-                ret += ("[" + queue[i] + "] ");
-            }
+        
+        for (int i = 0; i < queueMaxSize; i++) {
+            ret += ("[" + queue[i] + "] ");
         }
 
         return ret;
