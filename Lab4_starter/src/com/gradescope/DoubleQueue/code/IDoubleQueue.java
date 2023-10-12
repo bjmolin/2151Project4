@@ -67,4 +67,19 @@ public interface IDoubleQueue <T>
      *
      */
     public String toString();
+
+    /**peek
+     * default function that can returns the left-most position
+     *
+     *@return a generic type
+     *
+     *@pre |self| > 0
+     *
+     *@post
+     * self = #self
+     * |self| = #|self|
+     * 
+     *
+     */
+    public T peek();
 }
