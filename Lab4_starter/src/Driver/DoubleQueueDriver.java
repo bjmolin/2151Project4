@@ -9,7 +9,7 @@ public class DoubleQueueDriver
     public static void main(String[] args)
     {
 
-        IDoubleQueue myQueue;
+        IDoubleQueue<String> myQueue;
 
         Scanner keyboard = new Scanner(System.in);
         int ans = 0;
@@ -23,29 +23,30 @@ public class DoubleQueueDriver
         if(ans==1)
         {
             System.out.println("Initializing queue as array size 10...");
-            myQueue = new ArrayDoubleQueue(10);
+            myQueue = new ArrayDoubleQueue<String>(10);
             System.out.println("Class:" + myQueue.getClass());
 
         }
         else
         {
             System.out.println("Initializing queue as arrayList...");
-            myQueue = new ListDoubleQueue(10);
+            myQueue = new ListDoubleQueue<String>(10);
         }
 
         System.out.println("\nEnqueuing 6 values");
-        myQueue.enqueue(1.0);
-        myQueue.enqueue(1.5);
-        myQueue.enqueue(2.0);
-        myQueue.enqueue(2.5);
-        myQueue.enqueue(3.0);
-        myQueue.enqueue(3.5);
+        myQueue.enqueue("corn");
+        myQueue.enqueue("dog");
+        myQueue.enqueue("cat");
+        myQueue.enqueue("cheese");
+        myQueue.enqueue("frog");
+        myQueue.enqueue("toaster");
 
         System.out.println("\nCurrent Queue: " + myQueue);
 
         System.out.println("\nNew Queue Length: " + myQueue.length());
 
-        Double removed = myQueue.dequeue();
+        String removed = myQueue.dequeue();
+
         System.out.println("\nCalling Dequeue. Value returned: [" + removed + "]");
 
         System.out.println("\nNew Queue Length: " + myQueue.length());
@@ -56,8 +57,11 @@ public class DoubleQueueDriver
 
         myQueue.enqueue(removed);
 
-        System.out.println("\nFinal Queue: " + myQueue);
+        System.out.println("\nQueue after adding the Dequeued value back to the Queue: " + myQueue);
 
+        System.out.println("\nPeek Value: [" + myQueue.peek() + "]");
+
+        System.out.println("\nFinal Queue: " + myQueue);
     }
 
 

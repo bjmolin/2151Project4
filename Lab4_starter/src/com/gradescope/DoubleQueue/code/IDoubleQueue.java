@@ -14,12 +14,12 @@ package com.gradescope.DoubleQueue.code;
  * 0 <= |self| <= max_queue_size
  *  
  */
-public interface IDoubleQueue
+public interface IDoubleQueue <T>
 {
 
 
     //This function's contracts are in the individual classes
-    public void enqueue(Double val);
+    public void enqueue(T val);
 
     /**dequeueContract
      * return value in front of queue and moves to next value
@@ -35,7 +35,7 @@ public interface IDoubleQueue
      * [return first element]
      *
      */
-    public Double dequeue();
+    public T dequeue();
 
     /**lengthContract
      *  gets and returns size of self

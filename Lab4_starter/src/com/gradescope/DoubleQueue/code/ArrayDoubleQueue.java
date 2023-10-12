@@ -10,7 +10,7 @@ package com.gradescope.DoubleQueue.code;
  */
 public class ArrayDoubleQueue implements IDoubleQueue
 {
-    private Double[] queue;
+    private T[] queue;
     private int queueMaxSize;
 
     /**ArrayDoubleQueueConstructorContact
@@ -76,10 +76,29 @@ public class ArrayDoubleQueue implements IDoubleQueue
 
     public String toString()
     {
+
         String ret = "";
-        for (int i = 0; i < queueMaxSize; i++) {
-            if (queue[i] != null) ret += ("[" + queue[i] + "] ");
+        int startIndex = 0;
+        boolean findStart = true;
+
+        while (findStart) {
+
+            if (queue[startIndex] == null) {
+                ++startIndex;
+            }
+            else {
+                findStart = false;
+            }
+
         }
+
+        for (int i = startIndex; i < length(); i++) {
+
+            if (queue[i] != null) {
+                ret += ("[" + queue[i] + "] ");
+            }
+        }
+
         return ret;
     }
 
