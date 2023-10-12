@@ -24,7 +24,7 @@ public interface IDoubleQueue <T>
     /**dequeueContract
      * return value in front of queue and moves to next value
      *
-     *@return a Double that represents first in self
+     *@return a genertic T that represents first element in self
      *
      *@pre
      * |self| > 0
@@ -55,7 +55,7 @@ public interface IDoubleQueue <T>
 
 
     /** peek Contract
-     *  returns ffront of queue
+     *  returns front of queue
      *
      *@return an T representing front of queue
      *
