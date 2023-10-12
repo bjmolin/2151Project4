@@ -66,9 +66,29 @@ public interface IDoubleQueue <T>
      * self = #self
      * return [first element in queue]
      * |self| = #|self|
+     * 
+     * [peek calls dequeue to store queue elements and then calls enqueue to re-add elements]
      *
      */
-    public T peek();
+    default public T peek() {
+
+        int size = length();
+
+        T[] tempQueue = (T[]) new Object[size];
+
+        for (int i = 0; i < size; ++i) {
+            tempQueue[i] = dequeue();
+        }
+
+        for (int i = 0; i < size; ++i) {
+            enqueue(tempQueue[i]);
+        }
+
+
+        return tempQueue[0];
+
+    }
+
 
 
     /**toStringContract
@@ -85,19 +105,4 @@ public interface IDoubleQueue <T>
      *
      */
     public String toString();
-
-    /**peek
-     * default function that can returns the left-most position
-     *
-     *@return a generic type
-     *
-     *@pre |self| > 0
-     *
-     *@post
-     * self = #self
-     * |self| = #|self|
-     * 
-     *
-     */
-    public T peek();
 }
