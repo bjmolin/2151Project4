@@ -80,7 +80,10 @@ public class ArrayDoubleQueue<T> implements IDoubleQueue<T>
         String ret = "";
         
         for (int i = 0; i < queueMaxSize; i++) {
-            ret += ("[" + queue[i] + "] ");
+            ret += "[";
+            if (queue[i] == null) ret += "null";
+            else ret += queue[i];
+            ret += "] ";
         }
 
         return ret;
