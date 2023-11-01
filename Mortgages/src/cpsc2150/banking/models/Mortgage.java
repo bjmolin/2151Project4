@@ -23,27 +23,41 @@ public class Mortgage extends AbsMortgage implements IMortgage {
         customer = cx;
     }
 
-    boolean loanApproved(){
-        if(){
-        return true;
+   private double DebtToIncomeRatio(double monthlyP){
+        double total = customer.getMonthlyDebtPayments() + monthlyP;
+        double monthlyIncome = customer.getIncome() / IMortgage.MONTHS_IN_YEAR;
+        return total / monthlyIncome;
+   }
+
+   public boolean loanApproved(){
+        double rate = getRate() * 12;
+        double PercentDown = downPayment/houseCost;
+        
+        if(rate < IMortgage.RATETOOHIGH && PercentDown >= IMortgage.MIN_PERCENT_DOWN && DebtToIncomeRatio(PercentDown) <= IMortgage.DTOITOOHIGH){
+            return true;
         }
-        return false;
+        else{
+            return false;
+        }
     }
 
 
-    double getPayment(){
+   public double getPayment(){
+        double rate = getRate();
+        int numPayements = years * IMortgage.MONTHS_IN_YEAR;
+
+        return(getRate() * getPrincipal()) / ()
+    }
+
+   public double getRate(){
 
     }
 
-    double getRate(){
-
-    }
-
-    double getPrincipal(){
+   public double getPrincipal(){
         return houseCost - downPayment;
     }
 
-    int getYears(){
+    public int getYears(){
         return years;
     }
 
