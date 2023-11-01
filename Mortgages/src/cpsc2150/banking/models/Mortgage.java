@@ -17,8 +17,8 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     * 
     */
     public Mortgage(double hCost, double dPayment, int yrs, ICustomer cx) {
-        hCost = houseCost;
-        dPayment = downPayment;
+        houseCost = hCost;
+        downPayment = dPayment;
         years = yrs;
         customer = cx;
     }
@@ -31,9 +31,9 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
    public boolean loanApproved(){
         double rate = getRate() * 12;
-        double PercentDown = downPayment/houseCost;
+        double percentDown = downPayment/houseCost;
         
-        if(rate < IMortgage.RATETOOHIGH && PercentDown >= IMortgage.MIN_PERCENT_DOWN && DebtToIncomeRatio(PercentDown) <= IMortgage.DTOITOOHIGH){
+        if(rate < IMortgage.RATETOOHIGH && percentDown >= IMortgage.MIN_PERCENT_DOWN && DebtToIncomeRatio(percentDown) <= IMortgage.DTOITOOHIGH){
             return true;
         }
         else{
@@ -45,14 +45,26 @@ public class Mortgage extends AbsMortgage implements IMortgage {
    public double getPayment(){
         double rate = getRate();
         int numPayements = years * IMortgage.MONTHS_IN_YEAR;
-
-        return(getRate() * getPrincipal()) / ()
+        double principal = getPrincipal();
+        return(rate*principal) / (1-Math.pow(1+rate, -numPayements));
     }
 
    public double getRate(){
-
+        double baseAPR = 0.025; 
+        
+        if (years < 30) {
+            baseAPR += 0.005; 
+        } else {
+            baseAPR += 0.01; 
+        }
+    
+        if (downPayment / houseCost < 0.2) {
+            baseAPR += 0.005;
+        }
+    
+        return baseAPR;
     }
-
+    
    public double getPrincipal(){
         return houseCost - downPayment;
     }
