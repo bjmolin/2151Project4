@@ -51,16 +51,22 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
    public double getRate(){
         double baseAPR = 0.025; 
+        if (customer.getCreditScore() < 500)  // very bad
+           baseAPR += 0.1; 
+        else if (customer.getCreditScore() >= 500 && customer.getCreditScore() < 600)  // bad
+           baseAPR += 0.05; 
+        else if (customer.getCreditScore() >= 600 && customer.getCreditScore() < 700)  // fair
+           baseAPR += 0.01; 
+        else if (customer.getCreditScore() >= 700 && customer.getCreditScore() < 750)  // good
+           baseAPR += 0.005; 
         
-        if (years < 30) {
+        if (years < 30) 
             baseAPR += 0.005; 
-        } else {
+        else 
             baseAPR += 0.01; 
-        }
     
-        if (downPayment / houseCost < 0.2) {
+        if (downPayment / houseCost < 0.2) 
             baseAPR += 0.005;
-        }
     
         return baseAPR;
     }
