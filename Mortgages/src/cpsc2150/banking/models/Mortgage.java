@@ -43,10 +43,10 @@ public class Mortgage extends AbsMortgage implements IMortgage {
 
 
    public double getPayment(){
-        double rate = getRate();
+        double rate = getRate()/12;
         int numPayements = years * IMortgage.MONTHS_IN_YEAR;
         double principal = getPrincipal();
-        return(rate*principal) / (1-Math.pow(1+rate, -numPayements));
+        return ((rate) * principal) / (1-Math.pow(1+(rate), -numPayements));
     }
 
    public double getRate(){
