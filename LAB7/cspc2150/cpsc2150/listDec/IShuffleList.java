@@ -12,9 +12,11 @@ public interface IShuffleList<T> extends List<T> {
         int pos1;
         int pos2;
 
+        Random rand = new Random();
+
         for (int i = 0; i < swaps; ++i) {
-            pos1 = rand(size());
-            pos2 = rand(size());
+            pos1 = rand.nextInt(size());
+            pos2 = rand.nextInt(size());
 
             T temp = get(pos1);
 
