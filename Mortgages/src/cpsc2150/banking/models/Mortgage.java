@@ -1,7 +1,8 @@
 package cpsc2150.banking.models;
 
 /*
- * @invariant
+ * @invariant houseCost >= 0 AND downPayment >= 0 AND years >= 0 AND
+ * [customer must be an instance of an implmentation of ICustomer]
  */
 
 
@@ -14,6 +15,9 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     /*Mortgage Constructor Contracts
     *
     * @pre hCost >= 0 AND dPayment >= 0 AND yrs >= 0 AND Mortgage = #Mortgage
+    *
+    * @post
+    * houseCost = hCost AND downPayment = dPayment AND years = yrs AND customer =  cx
     * 
     */
     public Mortgage(double hCost, double dPayment, int yrs, ICustomer cx) {
@@ -23,6 +27,14 @@ public class Mortgage extends AbsMortgage implements IMortgage {
         customer = cx;
     }
 
+    /**
+     * preforms the calcuations for a ratio of debbt to income
+     *
+     * FINISH CONTRACT
+     *
+     * @param monthlyP
+     * @return
+     */
    private double DebtToIncomeRatio(double monthlyP){
         double total = customer.getMonthlyDebtPayments() + monthlyP;
         double monthlyIncome = customer.getIncome() / IMortgage.MONTHS_IN_YEAR;
