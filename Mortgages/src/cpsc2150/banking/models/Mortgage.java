@@ -28,12 +28,12 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     }
 
     /** DebtToIncomeRatio Contracts
-     * preforms the calcuations for a ratio of debbt to income
+     * preforms the calcuations for a ratio of debt to income
      *
-     * FINISH CONTRACT
-     *
-     * @param monthlyP
-     * @return
+     * @param monthlyP The monthly payments
+     * @pre getIncome() >= 0
+     * @post Mortgage = #Mortgage [Object remains unchanged]
+     * @return [ratio of debt to income]
      */
    private double DebtToIncomeRatio(double monthlyP){
         double total = customer.getMonthlyDebtPayments() + monthlyP;
@@ -43,7 +43,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
    /** loanApproved Contracts
     * @pre rate >= 0 && downPayment >= 0 && houseCost >= 0
     * @post Mortgage = #Mortgage [Object remains unchanged]
-    * @return [return true of rate isn't tpp high AND percent down isn't too low AND DtoI isn't too high | False if otherwise]
+    * @return [return true of rate isn't too high AND percent down isn't too low AND DtoI isn't too high | False if otherwise]
     */
    public boolean loanApproved(){
         double rate = getRate() * 12;
