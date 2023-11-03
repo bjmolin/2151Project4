@@ -27,7 +27,7 @@ public class Mortgage extends AbsMortgage implements IMortgage {
         customer = cx;
     }
 
-    /**
+    /** DebtToIncomeRatio Contracts
      * preforms the calcuations for a ratio of debbt to income
      *
      * FINISH CONTRACT
@@ -40,7 +40,11 @@ public class Mortgage extends AbsMortgage implements IMortgage {
         double monthlyIncome = customer.getIncome() / IMortgage.MONTHS_IN_YEAR;
         return total / monthlyIncome;
    }
-
+   /** loanApproved Contracts
+    * @pre rate >= 0 && downPayment >= 0 && houseCost >= 0
+    * @post Mortgage = #Mortgage [Object remains unchanged]
+    * @return [return true of rate isn't tpp high AND percent down isn't too low AND DtoI isn't too high | False if otherwise]
+    */
    public boolean loanApproved(){
         double rate = getRate() * 12;
         double percentDown = downPayment/houseCost;
@@ -53,7 +57,11 @@ public class Mortgage extends AbsMortgage implements IMortgage {
         }
     }
 
-
+    /** getPayemnt Contracts 
+     * @pre getRate >= 0 
+     * @post getPayment >= 0 AND Mortgage = #Mortgage [Object remains unchanged]
+     * @return [monthly payment required] 
+     */
    public double getPayment(){
         double rate = getRate()/12;
         int numPayements = years * IMortgage.MONTHS_IN_YEAR;
@@ -61,6 +69,11 @@ public class Mortgage extends AbsMortgage implements IMortgage {
         return ((rate) * principal) / (1-Math.pow(1+(rate), -numPayements));
     }
 
+    /**getRate Contracts
+     * @pre years >= 0
+     * @post baseAPR >= 0 AND Mortgage = #Mortgage [State of Object remains unchanged]
+     * @return calculated baseAPR
+     */
    public double getRate(){
         double baseAPR = 0.025; 
         if (customer.getCreditScore() < 500)  // very bad
@@ -82,11 +95,19 @@ public class Mortgage extends AbsMortgage implements IMortgage {
     
         return baseAPR;
     }
-    
+    /** getPrinciple Contracts
+     * @pre houseCost >= 0 AND downPayment >= 0
+     * @post Mortgage = #Mortgage [State of Object remains unchanged]
+     * @return principle = houseCost - downPayment
+     */
    public double getPrincipal(){
         return houseCost - downPayment;
     }
-
+    /** getYears Contracts 
+     * @pre years >= 0
+     * @post Mortgage = #Mortgage [State of object remains unchanged]
+     * @return years
+     */
     public int getYears(){
         return years;
     }
