@@ -27,8 +27,11 @@ public class ClassView
 	 * (remember, since this isn't a real GUI and we're using the console, the state of my view (the console) never technically changes)
 	 */
 	public void printClassInformation(String aClassName, int aClassNumber, String aClassDPT)
-	{
-
+	{	
+		System.out.println("Class Details: ");
+		System.out.println("Name: "+ aClassName);
+		System.out.println("Class Number: "+ aClassNumber);
+		System.out.println("Class Department: "+ aClassDPT);
 	}
 	
 }

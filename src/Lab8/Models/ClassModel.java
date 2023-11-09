@@ -33,7 +33,7 @@ public class ClassModel
 	 * @post getClassName = ClassName AND ClassName = #ClassName AND ClassNumber = #ClassNumber AND ClassDPT = #ClassDPT
 	 */
 	public String getClassName() {
-
+		return ClassName;
 	}
 	
 	
@@ -47,7 +47,7 @@ public class ClassModel
 	 * @post className = aClassName AND ClassNumber = #ClassNumber AND ClassDPT = #ClassDPT
 	 */
 	public void setClassName(String aClassName) {
-
+		ClassName = aClassName;
 	}
 	
 	
@@ -61,7 +61,7 @@ public class ClassModel
 	 * @post getClassNumber = ClassNumber AND ClassName = #ClassName AND ClassNumber = #ClassNumber AND ClassDPT = #ClassDPT
 	 */
 	public int getClassNumber() {
-
+		return ClassNumber;
 	}
 	
 	
@@ -75,7 +75,7 @@ public class ClassModel
 	 * @post ClassNumber = aClassNumber AND ClassDPT = #ClassDPT AND ClassName = #ClassName
 	 */
 	public void setClassNumber(int aClassNumber) {
-
+		ClassNumber = aClassNumber;
 	}
 	
 	
@@ -89,7 +89,7 @@ public class ClassModel
 	 * @post getClassDPT = ClassDPT AND ClassName = #ClassName AND ClassNumber = #ClassNumber AND ClassDPT = #ClassDPT
 	 */
 	public String getClassDPT() {
-
+		return ClassDPT;
 	}
 	
 	
@@ -103,6 +103,6 @@ public class ClassModel
 	 * @post ClassDPT = aClassDPT AND ClassName = #ClassName AND ClassNumber = #ClassNumber
 	 */
 	public void setClassDPT(String aClassDPT) {
-
+		ClassDPT = aClassDPT;
 	}
 }
