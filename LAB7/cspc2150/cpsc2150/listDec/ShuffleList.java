@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
+ * @invariant myList is an instance of a List<T>
+ *
  * @correspondence self = myList
  */
 public class ShuffleList<T> implements IShuffleList<T> {
@@ -40,36 +42,99 @@ public class ShuffleList<T> implements IShuffleList<T> {
     // Public Methods
     // ===========================================================
 
+    /**
+     * adds an element to myList
+     *
+     * @return True IFF element e is added correctly
+     *
+     * @param e element whose presence in this collection is to be ensured
+     *
+     * @post
+     *  [this.add calls List.add(T)] AND
+     *  this.add(T) = List.add(T) AND
+     *  mylist = [myList after adding an element to the list]
+     */
     @Override
     public boolean add(T e) {
         // complete this method
         return myList.add(e);
     }
 
+    /**
+     * this  function gets the element at an index
+     *
+     * @param i index of the element to return
+     *
+     * @return the element at index i
+     *
+     * @post
+     * this.get(int) calls List.get(int)] AND
+     * this.get(int) = List.get(int) AND
+     * myList = #myList
+     */
     @Override
     public T get(int i) {
         // complete this method
        return myList.get(i);
     }
 
+    /**
+     * adds an element an a specific index and pushs other elements back
+     *
+     * @param index index at which the specified element is to be inserted
+     * @param e element to be inserted
+     *
+     * @post
+     * [this.add(int , T) calls List.add(int , T)] AND
+     * this.add(int , T) = List.add(int , T) AND
+     * myList = [myList with an added element]
+     */
     @Override
     public void add(int index, T e) {
         // complete this method
         myList.add(index, e);
     }
 
+    /**
+     * gets the size of myList
+     *
+     * @return int representing the size of myList
+     *
+     * @post
+     * this.size() = List.size() AND
+     * myList = #myList
+     */
     @Override
     public int size() {
         // complete this method
         return myList.size();
     }
 
+    /**
+     * empties myList
+     *
+     * @post
+     * [this.clear() calls List.clear()] AND
+     * myList = [an empty List]
+     */
     @Override
     public void clear() {
         // complete this method
        myList.clear();
     }
 
+    /**
+     * reassigns the element at an index with a different value
+     *
+     * @param i index of the element to replace
+     * @param x element to be stored at the specified position
+     *
+     * @return the element that was located at index i before replaced
+     *
+     * @post
+     * this.set(int , T) = List.set(int , T) AND
+     * myList = [myList with an updated element at index i]
+     */
     @Override
     public T set(int i, T x) {
         // complete this method
