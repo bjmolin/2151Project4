@@ -100,7 +100,8 @@ public class ClassController
 	//TODO implement
 	public void setClassNumber(int aNumber)
 	{
-		if(MIN_COURSE_NUM < aNumber && aNumber < MAX_COURSE_NUM && aNumber == COURSE_NUM_LENGTH){
+		String temp = Integer.toString(aNumber); // string conversion
+		if((MIN_COURSE_NUM < aNumber) && (aNumber < MAX_COURSE_NUM) && (temp.length() == COURSE_NUM_LENGTH)){
 		myModel.setClassNumber(aNumber);
 		}
 		else{
