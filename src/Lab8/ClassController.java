@@ -121,7 +121,7 @@ public class ClassController
 	//TODO implement
 	public String getClassDPT()
 	{
-
+		return myModel.getClassDPT();
 	}
 	
 	
@@ -138,7 +138,12 @@ public class ClassController
 	//TODO implement
 	public void setClassDPT(String aClassDPT)
 	{
-
+		if(aClassDPT.length() == COURSE_DPT_LENGTH){
+			myModel.setClassDPT(aClassDPT);
+		}
+		else{
+			myModel.setClassDPT("XXXX");
+		}
 	}
 	
 	
